@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>安安總召的串燒基地</title>
+<meta name="description" content="安勤之——社會學者、翻譯者、讀書會總召。把閱讀與思考的過程攤開來，讓別人看得到怎麼做、可以接著做、也可以說哪裡做錯了。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f9f5ee;
+  --paper: #f3ede3;
+  --ink: #2a1f14;
+  --ink-light: #5c4a3a;
+  --ember: #c0582e;
+  --ember-glow: #e8764a;
+  --charcoal: #3d3028;
+  --ash: #a89888;
+  --smoke: #d4cabb;
+  --skewer: #8b6e4e;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Zen Kaku Gothic New', 'Noto Serif TC', serif;
+  background: var(--cream); color: var(--ink);
+  line-height: 1.85; font-size: 17px;
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(249,245,238,0.92); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--smoke);
+  padding: 0.6rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.88rem;
+}
+nav .brand {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 900; font-size: 1.05rem; color: var(--ember);
+}
+nav .links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+nav .links a { color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+nav .links a:hover { color: var(--ember); }
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: flex-start;
+  padding: 8rem 2rem 4rem; max-width: 900px; margin: 0 auto;
+  position: relative;
+}
+.hero::before {
+  content: '串'; position: absolute; right: -2rem; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18rem; font-weight: 900;
+  color: var(--smoke); opacity: 0.25; pointer-events: none; line-height: 1;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 3.2rem; font-weight: 900; line-height: 1.25; margin-bottom: 1rem;
+}
+.hero h1 span { color: var(--ember); }
+.hero .subtitle {
+  font-size: 1.15rem; color: var(--ink-light);
+  max-width: 600px; margin-bottom: 2.5rem;
+}
+.hero .tagline {
+  font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--ash);
+  border-left: 3px solid var(--ember); padding-left: 1rem; margin-bottom: 2rem;
+}
+.hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-links a {
+  display: inline-block; padding: 0.55rem 1.4rem;
+  border: 1.5px solid var(--charcoal); color: var(--charcoal);
+  text-decoration: none; font-size: 0.9rem; transition: all 0.25s;
+}
+.hero-links a:hover { background: var(--ember); color: var(--cream); border-color: var(--ember); }
+.hero-links a.primary { background: var(--charcoal); color: var(--cream); }
+.hero-links a.primary:hover { background: var(--ember); border-color: var(--ember); }
+section { max-width: 820px; margin: 0 auto; padding: 5rem 2rem; }
+section + section { border-top: 1px solid var(--smoke); }
+h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.8rem; font-weight: 900; margin-bottom: 1.5rem;
+  position: relative; display: inline-block;
+}
+h2::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 2.5rem; height: 3px; background: var(--ember);
+}
+h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem; font-weight: 700; color: var(--ember);
+  margin-top: 2rem; margin-bottom: 0.6rem;
+}
+p { margin-bottom: 1rem; }
+a { color: var(--ember); }
+a:hover { color: var(--ember-glow); }
+.card-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem; margin-top: 1.5rem;
+}
+.card {
+  background: var(--paper); padding: 1.5rem;
+  border-left: 3px solid var(--skewer); transition: border-color 0.2s;
+}
+.card:hover { border-color: var(--ember); }
+.card .card-title {
+  font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.4rem;
+}
+.card .card-desc { font-size: 0.9rem; color: var(--ink-light); line-height: 1.7; }
+.contrast-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.5rem 0;
+}
+.contrast {
+  background: var(--paper); padding: 1.3rem 1.4rem; border-top: 3px solid var(--skewer);
+}
+.contrast .ct-label {
+  font-family: 'Noto Serif TC', serif; font-weight: 900; font-size: 1.1rem;
+  color: var(--ember); margin-bottom: 0.5rem;
+}
+.contrast .ct-body { font-size: 0.9rem; color: var(--ink-light); line-height: 1.7; }
+.pub-list { margin-top: 1.5rem; }
+.pub { padding: 1.1rem 0; border-bottom: 1px solid var(--smoke); }
+.pub:last-child { border-bottom: none; }
+.pub-meta {
+  font-size: 0.78rem; color: var(--ash);
+  letter-spacing: 0.05em; margin-bottom: 0.3rem;
+}
+.pub-title {
+  font-family: 'Noto Serif TC', serif; font-weight: 700;
+  font-size: 1.05rem; line-height: 1.5; margin-bottom: 0.35rem;
+}
+.pub-title a {
+  color: var(--ink); text-decoration: none;
+  border-bottom: 1.5px solid var(--ember-glow); transition: color 0.2s;
+}
+.pub-title a:hover { color: var(--ember); }
+.pub-note { font-size: 0.9rem; color: var(--ink-light); line-height: 1.7; }
+.facts {
+  margin-top: 1.6rem; border-left: 3px solid var(--skewer); padding-left: 1.2rem;
+}
+.facts div { font-size: 0.92rem; color: var(--ink-light); margin-bottom: 0.45rem; }
+.facts b {
+  color: var(--ink); font-weight: 700; font-family: 'Noto Serif TC', serif;
+  margin-right: 0.5rem;
+}
+.course-list { list-style: none; margin-top: 1.5rem; }
+.course-list li {
+  padding: 0.75rem 0; border-bottom: 1px solid var(--smoke);
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 1rem; flex-wrap: wrap;
+}
+.course-list li:last-child { border-bottom: none; }
+.course-list .c-title {
+  font-family: 'Noto Serif TC', serif; font-weight: 700;
+  font-size: 1.0rem; color: var(--ink); line-height: 1.5;
+}
+.course-list .c-tag {
+  font-size: 0.74rem; color: var(--ember); background: #fde8db;
+  padding: 0.12rem 0.6rem; border-radius: 2px; white-space: nowrap;
+}
+.more-link {
+  display: inline-block; margin-top: 0.4rem; padding: 0.5rem 1.3rem;
+  border: 1.5px solid var(--charcoal); color: var(--charcoal);
+  text-decoration: none; font-size: 0.92rem; transition: all 0.25s;
+}
+.more-link:hover { background: var(--ember); color: var(--cream); border-color: var(--ember); }
+.creed {
+  background: var(--paper); border-left: 3px solid var(--ember);
+  padding: 1.4rem 1.6rem; margin-bottom: 2rem;
+}
+.creed .creed-title {
+  font-family: 'Noto Serif TC', serif; font-weight: 900;
+  font-size: 1.1rem; color: var(--ember); margin-bottom: 0.7rem;
+}
+.creed p:last-child { margin-bottom: 0; }
+.progress-list { list-style: none; margin-top: 1.5rem; }
+.progress-list li {
+  padding: 0.7rem 0 0.7rem 2rem; position: relative;
+  border-left: 2px solid var(--smoke); font-size: 0.95rem;
+}
+.progress-list li::before {
+  content: ''; position: absolute; left: -6px; top: 1rem;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--ash); border: 2px solid var(--cream);
+}
+.progress-list li.done::before { background: var(--ember); }
+.progress-list li.active::before {
+  background: var(--ember-glow); box-shadow: 0 0 0 3px rgba(232,118,74,0.25);
+}
+.progress-list li .status {
+  display: inline-block; font-size: 0.75rem;
+  padding: 0.1rem 0.5rem; margin-left: 0.5rem; border-radius: 2px;
+}
+.progress-list li.done .status { background: #e8ddd0; color: var(--skewer); }
+.progress-list li.active .status { background: #fde8db; color: var(--ember); }
+footer {
+  background: var(--charcoal); color: var(--smoke);
+  padding: 3rem 2rem; text-align: center; font-size: 0.88rem; line-height: 2;
+}
+footer a { color: var(--ember-glow); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+footer .footer-links {
+  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;
+}
+@media (max-width: 700px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero::before { font-size: 10rem; right: -1rem; }
+  nav { padding: 0.5rem 1rem; }
+  nav .links { gap: 0.8rem; font-size: 0.8rem; }
+  section { padding: 3.5rem 1.2rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .contrast-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">串燒基地</div>
+  <div class="links">
+    <a href="#about">關於我</a>
+    <a href="#research">靈芝樟芝研究</a>
+    <a href="#works">學術著作</a>
+    <a href="#teaching">課程</a>
+    <a href="#nodes">工作節點</a>
+    <a href="#reading">讀書會</a>
+    <a href="#nietzsche">尼采計畫</a>
+    <a href="#weber">韋伯計畫</a>
+    <a href="#writing">寫作</a>
+    <a href="#ai">AI 協作</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="tagline">我寫筆記、做翻譯、跟 AI 一起讀書——然後把過程都放上網。</div>
+  <h1><span>安安總召</span>的<br>串燒基地</h1>
+  <p class="subtitle">安勤之｜國立陽明交通大學 百川學士學位學程 實作級專案教師｜台大社會學博士。研究領域：文化社會學、醫療社會學、STS（科技與社會研究）。</p>
+  <div class="hero-links">
+    <a href="#works" class="primary">學術著作</a>
+    <a href="#reading">加入讀書會</a>
+    <a href="https://r94325005.blogspot.com/" target="_blank">部落格</a>
+    <a href="https://www.youtube.com/channel/UC3oJs4ZIqqM28EKAulXJH8Q" target="_blank">YouTube</a>
+  </div>
+</div>
+
+<section id="about">
+  <h2>關於我</h2>
+
+  <div class="creed">
+    <div class="creed-title">為什麼叫「串燒基地」</div>
+    <p><strong>串</strong>，是把人和書兜起來——文本兜得起來，思想才不散；<strong>燒</strong>，是一群人讀著讀著就燒起來的熱，涂爾幹說的集體歡騰；<strong>基地</strong>，是讓這件事一再發生的地方。</p>
+    <p>我追問的其實很樸素：思考、思想、思慮，到底哪裡不一樣？這問題總會繞回自己——我是在思考，還是只是在說話。</p>
+    <p>讀書會、翻譯、慢讀、課堂，都是同一件事：把書當平台，讓思考在更多人身上發生。</p>
+  </div>
+
+  <p>頭銜講不出我在做什麼。我做的就一件事：追問一樣東西怎麼變成「那個東西」。靈芝、樟芝、四物湯，問的都是這個。</p>
+  <p>這兩年我和 AI 一起讀書。有時它替我寫，更多時候是陪我讀；但有些東西，終究得自己讀、自己寫、自己試。過程全攤開，要接、要罵，都行。</p>
+  <p>信箱：<a href="mailto:anccc@nycu.edu.tw">anccc@nycu.edu.tw</a></p>
+
+  <div class="facts">
+    <div><b>現職</b>國立陽明交通大學 百川學士學位學程 實作級專案教師</div>
+    <div><b>學歷</b>國立臺灣大學社會學系 博士（2016）、碩士（2008）、學士（2005）</div>
+    <div><b>研究興趣</b>文化社會學、醫療社會學、科技與社會研究（STS）；物的分類史與範疇政治、療效政治、認證科學、價值重估、社會學本土化</div>
+  </div>
+</section>
+
+<section id="research">
+  <h2>靈芝樟芝研究</h2>
+  <p>一樣東西，憑什麼被分成藥、食品、保健品、文化遺產？這些分法看似天經地義，其實是國家、科學、商人、常民，連同那東西的脾性，喬出來的。</p>
+  <p>四物湯、靈芝、牛樟芝是我反覆回去的案例。靈芝和樟芝剛好對照：</p>
+
+  <div class="contrast-grid">
+    <div class="contrast">
+      <div class="ct-label">靈芝</div>
+      <div class="ct-body">泛東亞。同一朵菇，在中、日、韓、台被當成不同的東西——分類即記憶與權力。</div>
+    </div>
+    <div class="contrast">
+      <div class="ct-label">牛樟芝</div>
+      <div class="ct-body">臺灣特有，只長在牛樟樹爛空的心裡。從原住民解酒偏方，到「國寶」，到生技資本與法規——一場國族化的分類。</div>
+    </div>
+  </div>
+
+  <p>我不拿西方理論套臺灣，而是倒過來：從這些案例長出自己的概念，回頭問普遍理論答不上來的地方。樟芝對上 Anna Tsing 的松茸——松茸是廢墟裡撿的野菇，樟芝卻是被人養大、又被捧成國寶的；這一刀，她接不住。這是我想嘗試的社會學的本土化。</p>
+  <p style="margin-top:1.2rem"><a href="#works">→ 看相關的學術著作</a></p>
+</section>
+
+<section id="works">
+  <h2>學術著作</h2>
+  <p>正式發表，連到官方典藏與 DOI。題目換來換去，問的是同一件事；工具則從「物的生命史」換成「關係論」。</p>
+
+  <h3>學位論文</h3>
+  <div class="pub-list">
+    <div class="pub">
+      <div class="pub-meta">博士論文｜國立臺灣大學社會學系｜2016</div>
+      <div class="pub-title"><a href="https://doi.org/10.6342/NTU201601133" target="_blank">救命仙草、健康食品或生技靈藥？靈芝的科學、巿場與療效政治</a></div>
+      <div class="pub-note">靈芝的博論。兩個概念：療效政治、認證科學。藥有沒有效，從不是科學說了算，是國家、科學、傳銷、資本一起喬的；神話與科學，沒那麼對立。</div>
+    </div>
+    <div class="pub">
+      <div class="pub-meta">碩士論文｜國立臺灣大學社會學系｜2008</div>
+      <div class="pub-title"><a href="https://scholars.lib.ntu.edu.tw/handle/123456789/53299" target="_blank">四物湯的保健食品化：從物的生命史看中藥在台灣的當代轉化（1990–2008）</a></div>
+      <div class="pub-note">從四物湯看：「保健食品」一出現，就鬆動了食品、藥品、健康食品的老三分。一切的地基。</div>
+    </div>
+  </div>
+
+  <h3>期刊論文</h3>
+  <div class="pub-list">
+    <div class="pub">
+      <div class="pub-meta">《人文社會與醫療學刊》第 10 期，2023，頁 75–108</div>
+      <div class="pub-title"><a href="https://doi.org/10.6279/JHSSM.202305_(10).0004" target="_blank">穿鑿附「本草綱目音樂」會？以混搭的溝通理論反思「靈芝」國樂化的組裝過程</a></div>
+      <div class="pub-note">靈芝怎麼變成一場國樂音樂會？借維根斯坦、貝特森、高夫曼、拉圖與 Small 的「音樂化」拆這場拼裝，並用在地的詞——穿鑿、附會、導聆——說人怎麼溝通。</div>
+    </div>
+    <div class="pub">
+      <div class="pub-meta">《人文社會與醫療學刊》第 9 期，2022，頁 165–204</div>
+      <div class="pub-title"><a href="https://doi.org/10.6279/JHSSM.202205_(9).0006" target="_blank">從賽荷的寄食者理論探索臺灣牛樟芝的社會文化史</a></div>
+      <div class="pub-note">借賽荷《寄食者》看樟芝——parasite 同時是寄生蟲、噪音、食客。用容中律換掉排中律，重看命名之爭、國寶化與「血樟芝」。我從「物的生命史」轉向「關係論」的一篇。</div>
+    </div>
+    <div class="pub">
+      <div class="pub-meta">《科技醫療與社會》第 11 期，2010，頁 89–148</div>
+      <div class="pub-title"><a href="https://doi.org/10.6464/TJSSTM.201010.0089" target="_blank">論中藥作為保健食品：以四物湯的生命史為例探討藥品與食品範疇的革命</a></div>
+      <div class="pub-note">靠馬克思與阿帕杜萊：一樣東西「看起來是什麼」和「其實是什麼」可以分開——臺灣「藥食如一」的混融，正好戳破這點。</div>
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <h2>課程</h2>
+  <p>我在百川開的課，繞著幾條線：慢讀經典（尤其尼采）、科技與社會、教育與階級、經典與 AI、學術寫作。上課、研究、讀書會，對我是同一件事。</p>
+  <p><a href="./courses/" class="more-link">→ 課程與教學一覽（含各課程大綱）</a></p>
+</section>
+
+<section id="nodes">
+  <h2>四個工作節點</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">① 與 AI 一起慢讀尼采</div>
+      <div class="card-desc">逐節慢讀尼采全集，製作德英中對照讀本、錄影存檔，AI 協助對照與整理——把一個人做不完的苦工，變成可持續的長期計畫。<a href="#nietzsche">→ 尼采計畫</a></div>
+    </div>
+    <div class="card">
+      <div class="card-title">② 翻譯作為在地連結的通道</div>
+      <div class="card-desc">在部落格持續翻譯當代批判理論，並為臺灣讀者重新框定脈絡；選什麼譯、怎麼框，仍是人的判斷。2010 年至今 250 篇以上。<a href="#writing">→ 翻譯與寫作</a></div>
+    </div>
+    <div class="card">
+      <div class="card-title">③ AI 的反身性探索：映照與工夫</div>
+      <div class="card-desc">把 AI 當成一面鏡子來追問：我們在跟誰說話？是使用者還是工人？這也是四卷書《鏡像的惡魔》的核心。<a href="#ai">→ AI 協作</a></div>
+    </div>
+    <div class="card">
+      <div class="card-title">④ 讀書會社群：正在長出來的共同體</div>
+      <div class="card-desc">2023 年起的開放式線上讀書會，兩年半讀過四十多本，橫跨社會學、哲學、人類學、STS 到原住民研究；社群開始自己長出東西——揪讀、整理書單、辯論。<a href="#reading">→ 讀書會</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="reading">
+  <h2>讀書會社群</h2>
+  <p>以 Google Meet 線上進行，錄影上傳 YouTube，討論紀錄公開在部落格上。成員涵蓋學生、研究者、藝術工作者、業界人士等多元背景。所有讀書會皆自由開放參加。</p>
+  <p>有興趣的朋友歡迎加入主社群：<a href="https://line.me/ti/g2/QPY6UQPr-YJSuS7mlGhdIzMJKbmLhHun-Subdw" target="_blank">LINE OpenChat 讀書會社群</a></p>
+
+  <div style="margin: 2rem 0; padding: 1.2rem 1.5rem; background: var(--paper); border-left: 3px solid var(--ember);">
+    <div style="font-size: 0.8rem; color: var(--ember); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.5rem;">召募中｜六月中</div>
+    <div style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.4rem;">Tim Ingold《Being Alive》讀書會</div>
+    <div style="font-size: 0.9rem; color: var(--ink-light); margin-bottom: 0.8rem;">人類學家 Ingold 從感知、運動、生命的角度重新思考「存在」的意義。與近來讀書會關心的身體實作、工夫論、後人類主義高度呼應。</div>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.88rem;">
+      <a href="https://line.me/ti/g/zhSLJQd5kk" target="_blank" style="color: var(--ember);">→ 加入讀書會小群</a>
+      <a href="https://drive.google.com/file/d/14J_NKVaVv8ZkoCHHmuLiHW1B4PpJ-mE3/view?usp=sharing" target="_blank" style="color: var(--ink-light);">→ 書目簡報</a>
+      <a href="./ingold/" style="color: var(--ember);">→ 研究資源地圖（Ingold × 台灣學術，V1.0 可引用版）</a>
+      <a href="./being-alive/" style="color: var(--ink-light);">→ 沿線而行：與 Ingold《Being Alive》的在地對話</a>
+    </div>
+  </div>
+<!-- 燼與痕：德希達《Mal d'archive》在地對話網站 -->
+<div style="margin: 2rem 0; padding: 1.2rem 1.5rem; background: var(--paper); border-left: 3px solid var(--ember);">
+  <div style="font-size: 0.8rem; color: var(--ember); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.5rem;">讀書會延伸網站｜已上線</div>
+  <div style="font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.4rem;">Jacques Derrida《Mal d'archive》（檔案熱）</div>
+  <div style="font-size: 0.9rem; color: var(--ink-light); margin-bottom: 0.8rem;">德希達從佛洛伊德出發，追問「檔案」如何同時是保存與毀滅、是權力也是記憶。本站以五章導讀＋九個輔助頁，把《Mal d'archive》接上臺灣的轉型正義、原住民記憶與數位典藏，並附法英中三語對照。</div>
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.88rem;">
+    <a href="./mal-darchive/" style="color: var(--ember);">→ 燼與痕：與德希達《Mal d'archive》的在地對話</a>
+  </div>
+</div>
+  <h3>哲學</h3>
+  <p>尼采七部著作（詳見尼采計畫）、維根斯坦《哲學研究》、Huizinga《遊戲人》、Carse《有限與無限的遊戲》</p>
+
+  <h3>社會學經典</h3>
+  <p>布爾迪厄《國家菁英》、Goffman《污名》、葉啟政《超越資本主義的異托邦》、小坂井敏晶《民族的虛構》、bell hooks《關於愛的一切》、《何苦為男》</p>
+
+  <h3>STS／人類學</h3>
+  <p>拉圖《科學在行動》、Lisa Stevenson《生命之側》、Tim Ingold、《創新之後》</p>
+
+  <h3>記憶、轉型正義與政治</h3>
+  <p>鄂蘭《人的條件》、Graeber《債的歷史》、Bashir & Goldberg <em>The Holocaust and the Nakba</em>、小熊英二《1968》</p>
+
+  <h3>臺灣議題</h3>
+  <p>邱寶琳博論（原住民土地解殖民）、黃瀚嶢《沒口之河》、蔡潔妮《書寫一部台灣美術史》、李梅君《沒有人的運動》（g0v）</p>
+
+  <h3>AI 與數位文化</h3>
+  <p>Harari《連結》、串流音樂推薦書</p>
+
+  <h3>教育、階級與身體</h3>
+  <p>姜以琳《學神》、Becker 學術寫作、Lepecki <em>Exhausting Dance</em></p>
+</section>
+
+<section id="nietzsche">
+  <h2>尼采全集閱讀計畫</h2>
+  <p>2024 年 2 月啟動，目標是讀完尼采全部出版著作。每本書逐節慢讀，製作德英中中對照讀本，錄影存檔於 YouTube。</p>
+  <ul class="progress-list">
+    <li class="done">《悲劇的誕生》全本（2024.2–2024.7）<span class="status">完讀</span></li>
+    <li class="done">《不合時宜的考察》一〈大衛史特勞斯〉（2024.7–2024.8）<span class="status">完讀</span></li>
+    <li class="done">《不合時宜的考察》三〈作為教師的叔本華〉（2024.10–2024.12）<span class="status">完讀</span></li>
+    <li class="done">《不合時宜的考察》四〈華格納在拜羅伊特〉（2025.1–2025.2）<span class="status">完讀</span></li>
+    <li class="done">《希臘悲劇時代的哲學》全本（2025.3–2025.6）<span class="status">完讀</span></li>
+    <li class="done">〈非道德意義上的真與謊〉（2025.6–2025.7）<span class="status">完讀</span></li>
+    <li class="active">《人性的，太人性的》（2025.7–）<span class="status">進行中</span></li>
+    <li class="active">《查拉圖斯特拉如是說》卷一至卷四（課程，2025–2026）<span class="status">進行中</span> ｜ <a href="./zarathustra-iv/">卷四後五章視覺化教材</a> → ｜ <a href="./courses/1151_XDAP00026.html">115-1 卷一卷二課堂紀錄</a> →</li>
+    <li class="active">《道德系譜學》（課程，2025.9–）<span class="status">進行中</span></li>
+  </ul>
+  <p style="margin-top:1.5rem"><a href="https://www.youtube.com/channel/UC3oJs4ZIqqM28EKAulXJH8Q" target="_blank">→ YouTube 頻道播放清單</a></p>
+</section>
+<section id="weber">
+  <h2>韋伯《新教倫理》德中對照新譯</h2>
+  <p>尼采計畫的雙子星：把韋伯這部經典逐段譯成繁體中文，德文原文並列對照、術語即點即查、全文可搜。同一條路——把難讀的經典，做成可以一起讀的對照讀本。德文屬公共領域，新譯以 CC BY-NC-SA 釋出。</p>
+  <div class="hero-links" style="margin-top:1.5rem">
+    <a href="./weber/" class="primary">→ 進入韋伯計畫</a>
+    <a href="./weber/glossary.html">術語表</a>
+    <a href="./weber/search.html">全文檢索</a>
+  </div>
+</section>
+<section id="writing">
+  
+  <h2>翻譯與寫作</h2>
+
+  <h3>部落格｜日常生活實作筆記</h3>
+  <p><a href="https://r94325005.blogspot.com/" target="_blank">r94325005.blogspot.com</a>｜2010 年至今，250+ 篇。翻譯、摘要、理論筆記、AI 實驗、中醫身體論、讀書會紀錄——全部是進行中的工作，全部標明出處和工具，全部開放取用。</p>
+
+  <h3>遊戲之作｜《鏡像的惡魔》</h3>
+  <p>四卷書，約 35 萬字。AI 認識論批判、暴力的基礎設施、台灣的殖民與半邊陲位置、具身實踐的工夫論。</p>
+</section>
+
+<section id="ai">
+  <h2>AI 協作方法</h2>
+  <p>我的立場：AI 不能逃避，也不能崇拜。重要的是學會與它共同工作，並把工作過程公開。</p>
+
+  <h3>標註透明原則</h3>
+  <p>所有 AI 輔助的文章都標明使用了哪個工具。翻譯標明原文出處與譯者身分。摘要標明頁碼。讀書會紀錄標明 AI 整理的流程與步驟。</p>
+
+  <h3>核心觀點</h3>
+  <p>「人類有限，讓機器提供選擇，我們再來做出選擇，我們再修正，然後機器來評價我們的選擇，然後再建議我們選擇，然後我們再重新選擇。」</p>
+  <p>「問題應該在怎麼把這些書當平台，而不再只是當資料了。也就是，串起不同的人，成為每個人的工具箱，開展自己的事業。」</p>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="#works">學術著作</a>
+    <a href="https://r94325005.blogspot.com/" target="_blank">部落格</a>
+    <a href="https://www.youtube.com/channel/UC3oJs4ZIqqM28EKAulXJH8Q" target="_blank">YouTube</a>
+    <a href="https://line.me/ti/g2/QPY6UQPr-YJSuS7mlGhdIzMJKbmLhHun-Subdw" target="_blank">LINE 讀書會</a>
+    <a href="mailto:anccc@nycu.edu.tw">信箱</a>
+  </div>
+  <p>安勤之｜安安總召的串燒基地</p>
+  <p style="color: #6b5d4f; font-size: 0.8rem; margin-top: 0.5rem;">把閱讀與思考的過程攤開來，讓別人看得到怎麼做、可以接著做、也可以說哪裡做錯了。</p>
+</footer>
+
+</body>
+</html>
